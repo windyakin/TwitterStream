@@ -26,7 +26,7 @@
 			this.removeTweetDom();
 		},
 		initTweet: function(tweets) {
-			$.each(tweets.statuses, $.proxy(function(index, tweet){
+			$.each(tweets.statuses.reverse(), $.proxy(function(index, tweet){
 				this.renderTweet(tweet);
 			},this));
 		},
@@ -95,7 +95,7 @@
 			}
 		}
 	};
-	
+
 	$(document).ready(function(e){
 		new SocketIO();
 		new Twitter();
