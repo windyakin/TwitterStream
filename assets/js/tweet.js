@@ -2,21 +2,27 @@
 
 	var twitter, Twitter = function() {
 		twitter = this;
+		var tmpl = null;
 		this.initalized();
 	};
 	Twitter.prototype = {
 		initalized: function() {
+			this.tmpl = $('#tweetTemplate');
 			socketio.socket.emit('twitter', "search", "ラブライブ");
 		},
-		hitTweet: function(tweet) {
+		renderTweet: function(tweet) {
 			// RTっぽいものは排除
 			if ( tweet.text.indexOf("RT") === 0 ) return;
 			// Menthionっぽいものも排除
 			if ( tweet.text.indexOf("@") === 0 ) return;
-			console.log(tweet);
-			var html = $('#tweetTemplate').render(tweet);
+			var html = this.tmpl.render(tweet)
 			$("#tweet").prepend(html);
-		}
+		},
+		initTweet: function(tweets) {
+			$.each(tweets.statuses, $.proxy(function(index, tweet){
+				this.renderTweet(tweet);
+			},this));
+		},
 	}
 
 	var socketio, SocketIO = function() {
@@ -32,6 +38,9 @@
 						case 'search':
 							this.searchTwitter(args);
 							break;
+						case 'init':
+							this.initTweet(args);
+							break;
 						case 'hit':
 							this.hitTweet(args);
 							break;
@@ -45,7 +54,10 @@
 			$("#word").text(word);
 		},
 		hitTweet: function(tweet) {
-			twitter.hitTweet(tweet);
+			twitter.renderTweet(tweet);
+		},
+		initTweet: function(tweets) {
+			twitter.initTweet(tweets);
 		}
 	};
 

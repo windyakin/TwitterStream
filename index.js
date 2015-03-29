@@ -23,6 +23,11 @@ io.on('connection', function(socket){
 					if ( typeof twitter.currentTwitStream !== 'undefined' ) {
 						twitter.currentTwitStream.destroy();
 					}
+					// 検索を行う
+					twitter.get('search/tweets', {q: track}, function(error, tweets, response){
+					   console.log(tweets);
+					   io.emit('twitter', 'init', tweets);
+					});
 					// ストリーミングAPIからリアルタイム取得
 					twitter.stream('statuses/filter', {track: track}, function(stream) {
 						// Streamで流れてきたのをemit
