@@ -82,7 +82,7 @@
 	FullScreen.prototype = {
 		initalized: function() {
 			$(document)
-				.on('click', '#fullscreen', $.proxy(this.enterFullScreen ,this));
+				.on('dblclick', '#fullscreen', $.proxy(this.enterFullScreen ,this));
 		},
 		enterFullScreen: function() {
 			var elem = $(".fullscreen").get(0);
