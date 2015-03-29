@@ -22,12 +22,21 @@
 
 			var html = this.tmpl.render(tweet);
 			$("#tweet").prepend(html);
+
+			this.removeTweetDom();
 		},
 		initTweet: function(tweets) {
 			$.each(tweets.statuses, $.proxy(function(index, tweet){
 				this.renderTweet(tweet);
 			},this));
 		},
+		removeTweetDom: function() {
+			var $tweets = $("#tweet > li");
+			console.log($tweets.length);
+			if ($tweets.length >= 30 ) {
+				$($("#tweet > li")[$tweets.length-1]).remove();
+			}
+		}
 	}
 
 	var socketio, SocketIO = function() {
