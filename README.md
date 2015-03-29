@@ -9,7 +9,7 @@
 ## Usage
 
 ### Twitter API Keyの取得
-Twitter APIの各種キーについては自前で取得し，``twitter.json``として保存してください(最近はAPI Ketの取得だけで電話番号が必要なんですね…)。
+Twitter APIの各種キーについては自前で取得し，``twitter.json``として保存してください(最近はAPI Keyの取得だけで電話番号が必要なんですね…)。
 
 ```json
 {
