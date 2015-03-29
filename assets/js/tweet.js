@@ -7,7 +7,7 @@
 	};
 	Twitter.prototype = {
 		initalized: function() {
-			var track = window.location.hash || "ラブライブ"
+			var track = window.location.hash || "ラブライブ";
 			track = track.replace(/^#/, "");
 			socketio.socket.emit('twitter', "search", track);
 			this.tmpl = $('#tweetTemplate');
