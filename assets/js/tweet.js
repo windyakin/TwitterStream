@@ -32,9 +32,8 @@
 		},
 		removeTweetDom: function() {
 			var $tweets = $("#tweet > li");
-			console.log($tweets.length);
 			if ($tweets.length >= 30 ) {
-				$($("#tweet > li")[$tweets.length-1]).remove();
+				$($tweets[$tweets.length-1]).remove();
 			}
 		}
 	}
