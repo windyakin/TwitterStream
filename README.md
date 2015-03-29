@@ -61,7 +61,7 @@ listening on *:3000
 
 ## License
 
-私が書いたコードについては[MIT License](https://github.com/windyakin/PresenTimer/blob/master/LICENSE)で提供されます。
+私が書いたコードについては[MIT License](https://github.com/windyakin/TwitterStream/blob/master/LICENSE)で提供されます。
 
 それ以外のJsViewsやjQueryなどのライブラリについてはライブラリごとのライセンス規約に従います。
 
