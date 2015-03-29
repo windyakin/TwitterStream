@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TwitterStream</title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/tweet.css">
+</head>
+<body>
+
+<header>
+	<div id="logo"><img src="/assets/img/twitter.png"></div>
+	<div id="word">#kosenconf</div>
+</header>
+
+<ul id="tweet">
+	<script id="tweetTemplate" type="text/x-jsrender">
+		<li>
+			<div class="avatar"><img src="{{:user.profile_image_url}}"></div>
+			<dl>
+				<dt>@{{:user.screen_name}} {{:user.name}}</dt>
+				<dd>{{:text}}</dd>
+			</dl>
+		</li>
+	</script>
+</ul>
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/assets/lib/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="/assets/lib/jsviews.min.js"></script>
+
+<script type="text/javascript" src="/assets/js/tweet.js"></script>
+
+</body>
+</html>
