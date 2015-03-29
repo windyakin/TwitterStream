@@ -75,9 +75,31 @@
 		}
 	};
 
+	var fullScreen, FullScreen = function() {
+		fullScreen = this;
+		this.initalized();
+	};
+	FullScreen.prototype = {
+		initalized: function() {
+			$(document)
+				.on('click', '#fullscreen', $.proxy(this.enterFullScreen ,this));
+		},
+		enterFullScreen: function() {
+			var elem = $(".fullscreen").get(0);
+			if (elem.requestFullScreen) {
+			  elem.requestFullScreen();
+			} else if (elem.mozRequestFullScreen) {
+			  elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullScreen) {
+			  elem.webkitRequestFullScreen();
+			}
+		}
+	};
+	
 	$(document).ready(function(e){
 		new SocketIO();
 		new Twitter();
+		new FullScreen();
 		window.twitter = twitter;
 	});
 

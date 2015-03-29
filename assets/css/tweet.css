@@ -1,7 +1,8 @@
 body {
 	margin: 0;
-	padding: 120px 0 0;
+	padding: 115px 0 0;
 	font-family: 'Open Sans','Helvetica Neue', Helvetica, 'Arial', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+	background: #FFFFFF;
 }
 
 header {
@@ -14,7 +15,7 @@ header {
 	padding: 10px;
 	overflow: hidden;
 	background: #F5F8FA;
-	border-bottom: 1px solid #66757F;
+	border-bottom: 5px solid #99AAB5;
 }
 
 header > #logo {
@@ -49,6 +50,7 @@ ul#tweet {
 
 ul#tweet > li {
 	display: table-row;
+	background: #FFFFFF;
 }
 
 ul#tweet > li:nth-child(2n) {
