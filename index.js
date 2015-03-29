@@ -26,7 +26,7 @@ io.on('connection', function(socket){
 					// 検索を行う
 					twitter.get('search/tweets', {q: track}, function(error, tweets, response){
 					   console.log(tweets);
-					   io.emit('twitter', 'init', tweets);
+					   io.emit('twitter', 'init', tweets)
 					});
 					// ストリーミングAPIからリアルタイム取得
 					twitter.stream('statuses/filter', {track: track}, function(stream) {
@@ -54,6 +54,9 @@ io.on('connection', function(socket){
 		});
 
 	socket.on('disconnect', function(){
+		if ( typeof twitter.currentTwitStream !== 'undefined' ) {
+			twitter.currentTwitStream.destroy();
+		}
 		console.log('user disconnected');
 	});
 });
