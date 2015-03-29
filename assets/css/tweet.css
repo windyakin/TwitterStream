@@ -18,7 +18,15 @@ header {
 	border-bottom: 5px solid #99AAB5;
 }
 
-header > #logo {
+header > .row {
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+header > .row > #logo {
+	position: relative;
+	left: -50%;
 	float: left;
 	width: 90px;
 	height: 90px;
@@ -26,12 +34,14 @@ header > #logo {
 	padding: 0;
 }
 
-header > #logo > img {
+header > .row > #logo > img {
 	width: 90px;
 	height: 90px;
 }
 
-header > #word {
+header > .row > #word {
+	position: relative;
+	left: -50%;
 	float: left;
 	font-size: 70px;
 	font-weight: bold;
