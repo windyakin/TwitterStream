@@ -7,15 +7,20 @@
 	};
 	Twitter.prototype = {
 		initalized: function() {
+			var track = window.location.hash || "ラブライブ"
+			track = track.replace(/^#/, "");
+			socketio.socket.emit('twitter', "search", track);
 			this.tmpl = $('#tweetTemplate');
-			socketio.socket.emit('twitter', "search", "ラブライブ");
 		},
 		renderTweet: function(tweet) {
 			// RTっぽいものは排除
 			if ( tweet.text.indexOf("RT") === 0 ) return;
 			// Menthionっぽいものも排除
 			if ( tweet.text.indexOf("@") === 0 ) return;
-			var html = this.tmpl.render(tweet)
+
+			tweet.user.profile_image_url = tweet.user.profile_image_url.replace("_normal", "_bigger");
+
+			var html = this.tmpl.render(tweet);
 			$("#tweet").prepend(html);
 		},
 		initTweet: function(tweets) {
